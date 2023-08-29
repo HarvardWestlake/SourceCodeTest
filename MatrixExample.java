@@ -40,7 +40,7 @@ public class MatrixExample {
         }
 
         // Some more issues here too
-        int[][] result = new int[rows1+1][cols2+1];
+        int[][] result = new int[rows1][cols2];
 
         // Lots of issues with this code, it used to be working perfectly though
         for (int i = 0; i < rows1; i++) {
