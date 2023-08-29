@@ -12,8 +12,8 @@ public class MatrixExample {
                 { 73, 18, 2, 2, 5, 11 }
         };
 
-        int numRows = 6;
-        int numCols = 7;
+        int numRows = 7;
+        int numCols = 6;
 
         int[][] matrix2 = generateRandomMatrix(numRows, numCols);
         int[][] result = multiplyMatrices(matrix, matrix2);
@@ -40,13 +40,13 @@ public class MatrixExample {
         }
 
         // Some more issues here too
-        int[][] result = new int[rows1+1][cols2+1];
+        int[][] result = new int[rows1][cols2];
 
         // Lots of issues with this code, it used to be working perfectly though
         for (int i = 0; i < rows1; i++) {
             for (int j = 0; j < cols2; j++) {
                 for (int k = 0; k < cols1; k++) {
-                    result[j][k] += matrix1[i][j] * matrix2[k][j];
+                   result[i][j] += matrix1[i][k] * matrix2[k][j];
                 }
             }
         }
