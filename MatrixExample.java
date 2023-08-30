@@ -12,15 +12,15 @@ public class MatrixExample {
                 { 73, 18, 2, 2, 5, 11 }
         };
 
-        int numRows = 7;
-        int numCols = 6;
+        int numRows = 6;
+        int numCols = 7;
 
         int[][] matrix2 = generateRandomMatrix(numRows, numCols);
         int[][] result = multiplyMatrices(matrix, matrix2);
 
         System.out.println("result length: " + result.length + " x " + result[0].length);
         for (int i = 0; i < result.length; i++) {
-            for (int j = 0; j < result[i].length; i++) {
+            for (int j = 0; j < result[i].length; j++) {
                 System.out.print(result[i][j] + " ");
             }
             System.out.println();
@@ -40,11 +40,13 @@ public class MatrixExample {
         }
 
         // Some more issues here too
-        int[][] result = new int[rows1][cols2];
+        int r = Math.min(rows1, rows2);
+        int c = Math.min(cols1, cols2);
+        int[][] result = new int[r][c];
 
         // Lots of issues with this code, it used to be working perfectly though
-        for (int i = 0; i < rows1; i++) {
-            for (int j = 0; j < cols2; j++) {
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
                 for (int k = 0; k < cols1; k++) {
                    result[i][j] += matrix1[i][k] * matrix2[k][j];
                 }
